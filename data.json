@@ -1,14 +1,14 @@
 [
     {
         "id":1,
-        "title":"App Development",
+        "title":"App Development + Web DEV ",
         "image":"https://images.unsplash.com/photo-1558655146-364adaf1fcc9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8YXBwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea"
         
     },
     {
         "id":2,
-        "title":"Web Development",
+        "title":"Web Development + Blockchain",
         "image":"https://images.unsplash.com/photo-1601972599720-36938d4ecd31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8YXBwfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
         "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea"
         
