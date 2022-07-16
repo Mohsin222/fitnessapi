@@ -62,11 +62,11 @@ app.get("/my/:sel",async (req, res) => {
 
       $(".YVj9w", html).each(function () {
         const title = $(this).attr("src");
-        //    const url = $(this).attr('href')
-        // art.push({
-        //   title,
-        // });
-       art.push($(this).attr("src"))
+           const url = $(this).attr('href')
+        art.push({
+          title,
+        });
+     //  art.push($(this).attr("src"))
 
         console.log(art);
         
