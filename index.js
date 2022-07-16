@@ -50,7 +50,9 @@ app.get("/my", (req, res) => {
 
 //by name
 var special ='https://unsplash.com/s/photos/'
-app.get("/my/:sel", (req, res) => {
+var mydata=[]
+app.get("/my/:sel",async (req, res) => {
+  mydat=[]
     const sel =req.params.sel
   axios(special+sel)
     .then((response) => {
@@ -61,15 +63,19 @@ app.get("/my/:sel", (req, res) => {
       $(".YVj9w", html).each(function () {
         const title = $(this).attr("src");
         //    const url = $(this).attr('href')
-        art.push({
-          title,
-        });
+        // art.push({
+        //   title,
+        // });
+       art.push($(this).attr("src"))
 
         console.log(art);
-        res.send(art);
+        
       });
+     res.send(art);
     })
-    .catch((err) => console.log("err"));
+    .catch((err) => console.log(err));
+
+
 });
 
 
