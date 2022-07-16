@@ -48,6 +48,31 @@ app.get("/my", (req, res) => {
 
 
 
+//by name
+var special ='https://unsplash.com/s/photos/'
+app.get("/my/:sel", (req, res) => {
+    const sel =req.params.sel
+  axios(special+sel)
+    .then((response) => {
+      const html = response.data;
+      // console.log(html)
+      const $ = cheerio.load(html);
+
+      $(".YVj9w", html).each(function () {
+        const title = $(this).attr("src");
+        //    const url = $(this).attr('href')
+        art.push({
+          title,
+        });
+
+        console.log(art);
+        res.send(art);
+      });
+    })
+    .catch((err) => console.log("err"));
+});
+
+
 app.listen(port,()=>{
     console.log(`Server running at  ${port}`)
 })
