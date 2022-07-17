@@ -3,12 +3,15 @@ const cors= require('cors')
 const port = process.env.PORT || 3000
 const axios = require("axios");
 const cheerio = require("cheerio");
+const wallpapers_routes= require('./routes/wallpapers')
+const fitness_routes= require('./routes/fitness')
 
 const app= express()
 
 app.use(cors())
 
-
+app.use('/wallpapers',wallpapers_routes);
+app.use('/fitness',fitness_routes);
 const apiData =require('./data.json')
 
 app.get('/',(req,res)=>{
@@ -81,7 +84,7 @@ app.get("/my/:sel",async (req, res) => {
 
 
 //wallpapers routes
-var pixaUrl ="https://wallpapers.com/desktop"
+var pixaUrl ="https://wallpapercave.com/hd-4k-desktop-wallpapers/"
 var pixabyData=[]
 app.get("/wallpapers", (req, res) => {
   axios(pixaUrl)
@@ -90,7 +93,7 @@ app.get("/wallpapers", (req, res) => {
       // console.log(html)
       const $ = cheerio.load(html);
 
-      $(".lozad", html).each(function () {
+      $(".wimg", html).each(function () {
         const title = $(this).attr('src');
         //    const url = $(this).attr('href')
         pixabyData.push({
