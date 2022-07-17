@@ -36,7 +36,7 @@ router.get("/wall", (req, res) => {
 //by name
 var special ='https://unsplash.com/s/photos/'
 var mydata=[]
-router.get("/wal/:sel",async (req, res) => {
+router.get("/wall/:sel",async (req, res) => {
   mydata=[]
     const sel =req.params.sel
   axios(special+sel)
@@ -80,22 +80,23 @@ router.get("/tags",async (req, res) => {
       $(".p7ajO", html).each(function () {
         const title = $(this).attr("href");
         //   const url = $(this).attr('href')
-
+     
         $('.S48vf',html).each(function(){
 
             const text =$(this).text()
             tagsData.push({
                 title,
-                text
+               text
               });
+         
         })
    
      //  art.push($(this).attr("src"))
 
-        console.log(art);
+        console.log(tagsData);
         
       });
-     res.send(art);
+     res.send(tagsData);
     })
     .catch((err) => console.log(err));
 
