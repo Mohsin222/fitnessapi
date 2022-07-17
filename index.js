@@ -55,7 +55,7 @@ app.get("/my", (req, res) => {
 var special ='https://unsplash.com/s/photos/'
 var mydata=[]
 app.get("/my/:sel",async (req, res) => {
-  mydat=[]
+  mydata=[]
     const sel =req.params.sel
   axios(special+sel)
     .then((response) => {
