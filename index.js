@@ -79,6 +79,34 @@ app.get("/my/:sel",async (req, res) => {
 });
 
 
+
+//wallpapers routes
+var pixaUrl ="https://wallpapers.com/desktop"
+var pixabyData=[]
+app.get("/wallpapers", (req, res) => {
+  axios(pixaUrl)
+    .then((response) => {
+      const html = response.data;
+      // console.log(html)
+      const $ = cheerio.load(html);
+
+      $(".lozad", html).each(function () {
+        const title = $(this).attr('src');
+        //    const url = $(this).attr('href')
+        pixabyData.push({
+          title,
+        });
+
+        console.log(pixabyData);
+      
+      });
+
+    })
+    .catch((err) => console.log(err));
+    res.send(pixabyData);
+});
+
+
 app.listen(port,()=>{
     console.log(`Server running at  ${port}`)
 })
