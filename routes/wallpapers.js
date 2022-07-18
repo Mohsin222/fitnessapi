@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 
 
 
-var url = "https://unsplash.com/";
+var url = "https://unsplash.com/s/photos/girl";
 
 const art = [];
 router.get("/wall", (req, res) => {
@@ -25,10 +25,10 @@ router.get("/wall", (req, res) => {
         console.log(art);
       
       });
-
+      res.send(art);
     })
     .catch((err) => console.log("err"));
-    res.send(art);
+   
 });
 
 
@@ -39,7 +39,7 @@ var mydata=[]
 router.get("/wall/:sel",async (req, res) => {
   mydata=[]
     const sel =req.params.sel
-  axios(special+sel)
+  axios(`${special}${sel}`)
     .then((response) => {
       const html = response.data;
       // console.log(html)
@@ -56,7 +56,7 @@ router.get("/wall/:sel",async (req, res) => {
         console.log(mydata);
         
       });
-     res.send(art);
+     res.send(mydata);
     })
     .catch((err) => console.log(err));
 
