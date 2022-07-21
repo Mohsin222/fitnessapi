@@ -16,8 +16,9 @@ router.get('/',(req,res)=>{
 //fitness wallpapers
 var url = "https://unsplash.com/s/photos/fitness";
 
-const art = [];
+var art = [];
 router.get("/wall", (req, res) => {
+  art = [];
   axios(url)
     .then((response) => {
       const html = response.data;

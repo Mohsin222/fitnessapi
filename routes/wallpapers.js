@@ -7,8 +7,9 @@ const cheerio = require("cheerio");
 
 var url = "https://unsplash.com/s/photos/girl";
 
-const art = [];
+var art = [];
 router.get("/wall", (req, res) => {
+  art=[]
   axios(url)
     .then((response) => {
       const html = response.data;
