@@ -14,7 +14,7 @@ router.get('/',(req,res)=>{
 
 
 //fitness wallpapers
-var url = "https://unsplash.com/s/photos/fitness";
+var url = "https://unsplash.com/s/photos/ bikini";
 
 var art = [];
 router.get("/wall", (req, res) => {
@@ -35,7 +35,7 @@ router.get("/wall", (req, res) => {
         console.log(art);
 
       });
-      res.send(art);
+     return  res.send(art);
     })
     .catch((err) => console.log("err"));
  
