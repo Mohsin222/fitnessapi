@@ -5,7 +5,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 
-
+//exersice data
 router.get('/',(req,res)=>{
     res.send(apiData)
 
@@ -14,7 +14,7 @@ router.get('/',(req,res)=>{
 
 
 //fitness wallpapers
-var url = "https://unsplash.com/s/photos/ bikini";
+var url = "https://unsplash.com/s/photos/fitness";
 
 var art = [];
 router.get("/wall", (req, res) => {

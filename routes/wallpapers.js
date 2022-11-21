@@ -5,7 +5,7 @@ const cheerio = require("cheerio");
 
 
 
-var url = "https://unsplash.com/s/photos/girl";
+var url = "https://unsplash.com/"
 
 var art = [];
 router.get("/wall", (req, res) => {
@@ -28,7 +28,7 @@ router.get("/wall", (req, res) => {
       });
       res.send(art);
     })
-    .catch((err) => console.log("err"));
+    .catch((err) => console.log(err));
    
 });
 
@@ -54,7 +54,7 @@ router.get("/wall/:sel",async (req, res) => {
         });
      //  art.push($(this).attr("src"))
 
-        console.log(mydata);
+    //    console.log(mydata);
         
       });
      res.send(mydata);
@@ -66,7 +66,7 @@ router.get("/wall/:sel",async (req, res) => {
 
 
 
-//by name
+//by popular categories
 var tagsUrl ='https://unsplash.com/'
 var tagsData=[]
 router.get("/tags",async (req, res) => {
@@ -104,5 +104,40 @@ router.get("/tags",async (req, res) => {
 
 });
 
+
+
+
+//test
+
+const spec ='https://www.pexels.com/photo/sea-city-sunset-water-13176992/'
+router.get("/wall1/",async (req, res) => {
+  mydata=[]
+    //const sel =req.params.sel
+  axios(`${spec}`)
+    .then((response) => {
+      const html = response.data;
+
+
+      // console.log(html)
+      const $ = cheerio.load(html);
+   
+
+      $(".spacing_noMargin__Q_PsJ", html).each(function () {
+        const title = $(this).attr("src");
+         //  const url = $(this).attr('href')
+           mydata.push({
+          title,
+        });
+      art.push($(this).attr("src"))
+
+       console.log(mydata);
+        
+      });
+     res.send(mydata);
+    })
+    .catch((err) => console.log('err'));
+
+
+});
 
 module.exports = router;

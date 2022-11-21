@@ -1,5 +1,6 @@
-const express= require('express')
 const cors= require('cors')
+const express= require('express')
+
 const port = process.env.PORT || 3000
 const axios = require("axios");
 const cheerio = require("cheerio");
@@ -9,6 +10,18 @@ const fitness_routes= require('./routes/fitness')
 const app= express()
 
 app.use(cors())
+
+
+
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Methods',
+    'OPTIONS, GET, POST, PUT, PATCH, DELETE'
+  );
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 app.use('/wallpapers',wallpapers_routes);
 app.use('/fitness',fitness_routes);
