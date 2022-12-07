@@ -3,34 +3,36 @@ const router = express.Router();
 const axios = require("axios");
 const cheerio = require("cheerio");
 
-
+router.get('/',(req,res)=>{
+  res.send('Hello dadadlive')
+})
 
 var url = "https://unsplash.com/"
 
-var art = [];
-router.get("/wall", (req, res) => {
-  art=[]
-  axios(url)
-    .then((response) => {
-      const html = response.data;
-      // console.log(html)
-      const $ = cheerio.load(html);
+// var art = [];
+// router.get("/wall", (req, res) => {
+//   art=[]
+//   axios(url)
+//     .then((response) => {
+//       const html = response.data;
+//       // console.log(html)
+//       const $ = cheerio.load(html);
 
-      $(".YVj9w", html).each(function () {
-        const title = $(this).attr("src");
-        //    const url = $(this).attr('href')
-        art.push({
-          title,
-        });
+//       $(".YVj9w", html).each(function () {
+//         const title = $(this).attr("src");
+//         //    const url = $(this).attr('href')
+//         art.push({
+//           title,
+//         });
 
-        console.log(art);
+//         console.log(art);
       
-      });
-      res.send(art);
-    })
-    .catch((err) => console.log(err));
+//       });
+//       res.send(art);
+//     })
+//     .catch((err) => console.log(err));
    
-});
+// });
 
 
 
@@ -140,4 +142,33 @@ router.get("/wall1/",async (req, res) => {
 
 });
 
+
+
+
+var url = "https://unsplash.com/s/photos";
+
+var art = [];
+router.get("/wall", (req, res) => {
+  art = [];
+  axios(url)
+    .then((response) => {
+      const html = response.data;
+      // console.log(html)
+      const $ = cheerio.load(html);
+
+      $(".YVj9w", html).each(function () {
+        const title = $(this).attr("src");
+        //    const url = $(this).attr('href')
+        art.push({
+          title,
+        });
+
+        console.log(art);
+
+      });
+     return  res.send(art);
+    })
+    .catch((err) => console.log("err"));
+ 
+});
 module.exports = router;

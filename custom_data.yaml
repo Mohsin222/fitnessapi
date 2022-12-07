@@ -1,0 +1,8 @@
+path: ../datasets/  # dataset root dir
+train: ../train/images
+val: ../valid/images
+
+
+names:
+  0: empty
+  1: filled

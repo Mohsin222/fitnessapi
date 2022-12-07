@@ -126,6 +126,45 @@ app.get("/wallpapers", (req, res) => {
 });
 
 
+
+
+
+
+
+// Practice
+var imageBazar ="https://www.imagesbazaar.com/advancesearchresult/girl/girl/0/0/0/0/0/0/0/0/0"
+var pixabyData=[]
+app.get("/vv/", (req, res) => {
+  // var val =req.params.val
+ var  val ='girl/girl'
+  axios(imageBazar)
+    .then((response) => {
+      const html = response.data;
+      // console.log(html)
+      const $ = cheerio.load(html);
+// #img1
+// .placeholder-loader
+      $(".placeholder-loader", html).each(function () {
+        const title = $(this).attr('src');
+        //    const url = $(this).attr('href')
+        pixabyData.push({
+          title,
+        });
+        // res.send(pixabyData);
+        console.log(pixabyData);
+      
+      });
+
+    })
+    .catch((err) => console.log(err));
+    res.send(pixabyData);
+});
+
+
+
+
+
+
 app.listen(port,()=>{
     console.log(`Server running at  ${port}`)
 })
