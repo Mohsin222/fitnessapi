@@ -39,6 +39,8 @@ var url = "https://unsplash.com/"
 //by name
 var special ='https://unsplash.com/s/photos/'
 var mydata=[]
+// a5VGX
+// YVj9w
 router.get("/wall/:sel",async (req, res) => {
   mydata=[]
     const sel =req.params.sel
@@ -48,7 +50,7 @@ router.get("/wall/:sel",async (req, res) => {
       // console.log(html)
       const $ = cheerio.load(html);
 
-      $(".YVj9w", html).each(function () {
+      $(".a5VGX", html).each(function () {
         const title = $(this).attr("src");
            const url = $(this).attr('href')
            mydata.push({
@@ -111,8 +113,8 @@ router.get("/tags",async (req, res) => {
 
 //test
 
-const spec ='https://www.pexels.com/photo/sea-city-sunset-water-13176992/'
-router.get("/wall1/",async (req, res) => {
+const spec ='https://unsplash.com/'
+router.get("/wall11/",async (req, res) => {
   mydata=[]
     //const sel =req.params.sel
   axios(`${spec}`)
@@ -124,7 +126,7 @@ router.get("/wall1/",async (req, res) => {
       const $ = cheerio.load(html);
    
 
-      $(".spacing_noMargin__Q_PsJ", html).each(function () {
+      $(".a5VGX", html).each(function () {
         const title = $(this).attr("src");
          //  const url = $(this).attr('href')
            mydata.push({
